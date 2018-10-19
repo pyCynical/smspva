@@ -19,7 +19,7 @@ class smsPvaAPI():
 		return r.json() if self.is_json(r.text) else r.text
 
 	def get_userinfo(self, service, _id=None,operator=None):
-		params = dict(metod="get_balance",service=service,apikey=self.API_KEY) 
+		params = dict(metod="get_userinfo",service=service,apikey=self.API_KEY) 
 		r = requests.get(self.base_url,params=params)
 		return r.json() if self.is_json(r.text) else r.text
 
