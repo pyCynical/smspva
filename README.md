@@ -2,8 +2,12 @@
 Python wrapper for http://smspva.com
 
 You can install this package using git or pip for example -
- ```pip install smspva-api```
- OR 
+
+```
+pip install smspva-api
+```
+OR
+
  ```
  git clone git@github.com:pyCynical/smspva
  python setup.py
