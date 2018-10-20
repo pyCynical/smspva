@@ -16,7 +16,7 @@ class smsPvaAPI():
 	
 	def check_response(self, resp) -> dict:
 		if resp.status_code != 200 or not is_json(resp.text):
-			return f"There was some problem making the request more info:\nStatus Code: {resp.status_code}\nText: {resp.text}"
+			raise Error(f"There was some problem making the request more info:\nStatus Code: {resp.status_code}\nText: {resp.text}")
 		return resp.json()
 
 	def get_balance(self, service: str = None) -> dict:
@@ -63,3 +63,6 @@ class smsPvaAPI():
 		params = dict(metod="balance_sim", service=service, id=_id, apikey=self.API_KEY)
 		r = requests.get(self.API_ENDPOINT,params=params)
 		return self.check_response(r)
+
+
+
