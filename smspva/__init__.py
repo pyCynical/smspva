@@ -63,6 +63,3 @@ class smsPvaAPI():
 		params = dict(metod="balance_sim", service=service, id=_id, apikey=self.API_KEY)
 		r = requests.get(self.API_ENDPOINT,params=params)
 		return check_response(r)
-
-
-"service","id","number","country","sms","operator"
