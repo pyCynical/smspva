@@ -15,7 +15,7 @@ class smsPvaAPI():
 		self.API_KEY = API_KEY
 	
 	def check_response(self, resp):
-		if resp.status_code != 200 or not is_json(resp.json()):
+		if resp.status_code != 200 or not is_json(resp.text):
 			return f"There was some problem making the request more info:\nStatus Code: {resp.status_code}\nText: {resp.text}"
 		return resp.json()
 
