@@ -63,6 +63,13 @@ class smsPvaAPI():
 		params = dict(metod="balance_sim", service=service, id=_id, apikey=self.API_KEY)
 		r = requests.get(self.API_ENDPOINT,params=params)
 		return self.check_response(r)
-
-
+	def get_sms_message(self, country: str, service: str, _id: str) -> dict:
+		getCurrentTime = lambda: int(round(time.time() * 1000))
+		addTenToCurrent = getCurrentTime() + 600000
+		while addTenToCurrent >= getCurrentTime():
+			request = self.get_sms(country ,service ,_id)
+			if (hasattr(request, "text") and request["text"] != None) or (hasattr(request, "sms") and request["sms"] != None):
+				return request 
+				break
+			time.sleep(20)
 
